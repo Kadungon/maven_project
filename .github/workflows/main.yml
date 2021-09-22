@@ -43,9 +43,11 @@ jobs:
           path: target
           name: drop
           
-      - name: run shell cmd 
-        run: |
-          cd ~/
-          pwd
-          ls -a
+      - name: publish package
+        run: mvn --batch-mode deploy
+        
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+
 
